@@ -1,4 +1,4 @@
-<!--everything i made visually
+<!--website tests
     <p>&copy; me -- 2320</p>
 -->
 
@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
+    <title>--tteessttss--</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&family=Source+Code+Pro:wght@200;300;400;500;600&display=swap');
@@ -30,11 +30,9 @@
 
     main {
         flex: 1;
-        margin: auto;
-        margin-top: 35vh;
-        padding: 20px;
-        text-align: center;
-        background-color: #fff;
+        position: relative;
+        width: 100%;
+        /*background-color: antiquewhite;*/
     }
 
 
@@ -46,7 +44,8 @@
         position: fixed;
         width: 100%;
         bottom: 0;
-        background-color: #ffda89;
+        background: url('../images/output.gif');
+        background-size: cover;
     }
 
     a {
@@ -55,13 +54,25 @@
 
     }
 
+    .headerc {
+        margin-top: 10px;
+    }
+
+    .bottommain {
+        /*background-color: aquamarine;*/
+        width: 100%;
+        position: absolute;
+        bottom: 45px;
+    }
+
+
     main a {
         display: block;
         margin-bottom: 5px;
     }
 
     footer a {
-        color: #000;
+        color: #fff;
     }
 
     a:hover {
@@ -98,24 +109,29 @@
 
 <body>
     <header>
-        <p>visuals</p>
+        <div class="headerc">
+            <a class="pagelink" href="../index.html">go back</a>
+        </div>
     </header>
 
     <main>
-
+        <div class="bottommain">
+            <p style="margin-left: 18px; margin-right: 18px;">--tests-- --tests-- --tests-- --tests-- --tests--
+                --tests-- --tests-- --tests-- --tests-- --tests-- --tests-- --tests-- --tests--</p>
+        </div>
     </main>
 
     <footer>
         <div>
             <a class="pagelink" href="../index.html">home</a>
             <a class="pagelink" href="sounds.html">sounds</a>
-            <a class="pagelink" href="visuals.html">[visuals]</a>
+            <a class="pagelink" href="visuals.html">visuals</a>
             <a class="pagelink" href="bookshelf.html">bookshelf</a>
             <a class="pagelink" href="space.html">space</a>
             <a class="pagelink" href="portals.html">links</a>
         </div>
         <a href="https://webring.xxiivv.com/#your-id-here" target="_blank" rel="noopener">
-            <img src="https://webring.xxiivv.com/icon.black.svg" alt="XXIIVV webring" />
+            <img src="https://webring.xxiivv.com/icon.white.svg" alt="XXIIVV webring" />
         </a>
     </footer>
 </body>
