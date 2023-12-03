@@ -24,7 +24,6 @@
 
     header {
         padding-top: 0px;
-        padding-left: 15px;
         text-align: left;
     }
 
@@ -67,6 +66,31 @@
         color: #ff2000;
     }
 
+    header a {
+        text-decoration: none;
+        color: #333;
+        margin-left: 15px;
+        display: none;
+        /* Initially hide the link */
+    }
+
+    header a.visible {
+        display: inline-block;
+        /* Display the link when it has the 'visible' class */
+    }
+
+    header .headerc {
+        display: flex;
+        align-items: center;
+        padding-top: 10px;
+        padding-left: -5px;
+    }
+
+    header p {
+        margin: 0;
+        margin-left: 10px;
+    }
+
     .pagelink {
         margin-right: 10px;
     }
@@ -93,7 +117,11 @@
 
 <body>
     <header>
-        <p>0123456789</p>
+        <div class="headerc">
+            <a id="hiddenLink" class="pagelink" href="pages/tests.html">--tests--</a>
+            <p id="trigger">0123456789</p>
+            <p id="homeLink" style="margin-left: 10px;"> // home</p>
+        </div>
     </header>
 
     <main>
@@ -103,16 +131,47 @@
     <footer>
         <div>
             <a class="pagelink" href="https://www.example.com">[home]</a>
-            <a class="pagelink" href="https://www.example.com">sounds</a>
-            <a class="pagelink" href="https://www.example.com">visuals</a>
-            <a class="pagelink" href="https://www.example.com">bookshelf</a>
-            <a class="pagelink" href="https://www.example.com">space</a>
-            <a class="pagelink" href="pages/links.html">links</a>
+            <a class="pagelink" href="pages/sounds.html">sounds</a>
+            <a class="pagelink" href="pages/visuals.html">visuals</a>
+            <a class="pagelink" href="pages/bookshelf.html">bookshelf</a>
+            <a class="pagelink" href="pages/space.html">space</a>
+            <a class="pagelink" href="pages/portals.html">links</a>
         </div>
         <a href="https://webring.xxiivv.com/#your-id-here" target="_blank" rel="noopener">
             <img src="https://webring.xxiivv.com/icon.black.svg" alt="XXIIVV webring" />
         </a>
     </footer>
+
+    <script>
+        // Get the trigger, hidden link, and home link elements
+        const triggerElement = document.getElementById('trigger');
+        const hiddenLink = document.getElementById('hiddenLink');
+        const homeLink = document.getElementById('homeLink');
+
+        // Add a click event listener to the trigger element
+        triggerElement.addEventListener('click', function () {
+            // Toggle the 'visible' class on the hidden link
+            hiddenLink.classList.toggle('visible');
+
+            // Replace the content of the trigger element with the link content
+            triggerElement.textContent = hiddenLink.classList.contains('visible') ? '' : '0123456789';
+
+            // Update the margin-left of the home link
+            homeLink.style.marginLeft = hiddenLink.classList.contains('visible') ? '-10px' : '0';
+        });
+
+        // Add a click event listener to the home link
+        homeLink.addEventListener('click', function () {
+            // Reset the content of the trigger element
+            triggerElement.textContent = '0123456789';
+
+            // Hide the hidden link
+            hiddenLink.classList.remove('visible');
+
+            // Reset the margin-left of the home link
+            homeLink.style.marginLeft = '10px';
+        });
+    </script>
 </body>
 
 </html>
