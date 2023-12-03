@@ -11,7 +11,7 @@
     <title>Your Page Title</title>
 </head>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&family=Source+Code+Pro:wght@200;300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&family=Redacted&family=Source+Code+Pro:wght@200;300;400;500;600&display=swap');
 
     body {
         font-family: 'Source Code Pro', monospace;
@@ -79,7 +79,7 @@
         /* Display the link when it has the 'visible' class */
     }
 
-    header .headerc {
+    .headerc {
         display: flex;
         align-items: center;
         padding-top: 10px;
@@ -125,7 +125,11 @@
     </header>
 
     <main>
-
+        <div class="maintext">
+            <p>hi my name is █████ ███████</p>
+            <p>i'm a music producer from ██████, ███████</p>
+            <p>i hope you're well</p>
+        </div>
     </main>
 
     <footer>
@@ -142,36 +146,7 @@
         </a>
     </footer>
 
-    <script>
-        // Get the trigger, hidden link, and home link elements
-        const triggerElement = document.getElementById('trigger');
-        const hiddenLink = document.getElementById('hiddenLink');
-        const homeLink = document.getElementById('homeLink');
-
-        // Add a click event listener to the trigger element
-        triggerElement.addEventListener('click', function () {
-            // Toggle the 'visible' class on the hidden link
-            hiddenLink.classList.toggle('visible');
-
-            // Replace the content of the trigger element with the link content
-            triggerElement.textContent = hiddenLink.classList.contains('visible') ? '' : '0123456789';
-
-            // Update the margin-left of the home link
-            homeLink.style.marginLeft = hiddenLink.classList.contains('visible') ? '-10px' : '0';
-        });
-
-        // Add a click event listener to the home link
-        homeLink.addEventListener('click', function () {
-            // Reset the content of the trigger element
-            triggerElement.textContent = '0123456789';
-
-            // Hide the hidden link
-            hiddenLink.classList.remove('visible');
-
-            // Reset the margin-left of the home link
-            homeLink.style.marginLeft = '10px';
-        });
-    </script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
