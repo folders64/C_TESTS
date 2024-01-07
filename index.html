@@ -4,7 +4,16 @@
 <head>
     <title>index</title>
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Redacted&display=swap"
+        rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'BASICA';
+            src: url('fonts/BASICA\ -\ FUTURE_TTF.TTF') format('truetype');
+        }
+
         body {
             display: flex;
             flex-direction: column;
@@ -12,11 +21,12 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #fff;
-            color: #000;
+            background-color: #000;
+            color: #fff;
         }
-        /*
-        // scanlines
+
+
+        /* scanlines */
         body::before {
             content: "";
             position: fixed;
@@ -32,30 +42,150 @@
             pointer-events: none;
             z-index: 9999;
         }
-        */
+
         #output {
+            position: fixed;
+            right: 0;
+            bottom: 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #fff;
-            color: #000;
+            background-color: none;
+            color: #fff;
         }
 
         a {
             color: #cfcfcf;
         }
-        
+
+        .page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            /* adjust as needed */
+            height: 100%;
+            /* adjust as needed */
+        }
+
+        .logo>svg,
+        #logoimg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+        }
+
+        #left {
+            position: absolute;
+            left: 32px;
+        }
+
+        #right {
+            position: absolute;
+            right: 32px;
+        }
     </style>
 </head>
 
 <body>
+    <div class="header">
+    </div>
+    <div class="page">
+        <div class="logo">
+            <svg width="600" height="1000">
+
+                <!--
+                <ellipse id="ellipseA" cx="250" cy="75" rx="20" ry="70" stroke="red" stroke-width="1" fill="none" />
+
+                <ellipse id="ellipseB" cx="250" cy="75" rx="40" ry="70" stroke="red" stroke-width="1" fill="none" />
+
+                <ellipse id="ellipseC" cx="250" cy="75" rx="60" ry="70" stroke="red" stroke-width="1" fill="none" />
+
+                <ellipse id="ellipseD" cx="250" cy="75" rx="80" ry="70" stroke="red" stroke-width="1" fill="none" />
+                -->
+
+                <ellipse id="ellipse1" cx="300" cy="500" rx="100" ry="70" stroke="white" stroke-width="1" fill="none" />
+                <ellipse id="ellipse2" cx="300" cy="500" rx="120" ry="70" stroke="white" stroke-width="1" fill="none" />
+                <ellipse id="ellipse3" cx="300" cy="500" rx="140" ry="70" stroke="white" stroke-width="1" fill="none" />
+                <ellipse id="ellipse4" cx="300" cy="500" rx="160" ry="70" stroke="white" stroke-width="1" fill="none" />
+                <ellipse id="ellipse5" cx="300" cy="500" rx="180" ry="70" stroke="white" stroke-width="1" fill="none" />
+                <ellipse id="ellipse6" cx="300" cy="500" rx="200" ry="70" stroke="white" stroke-width="1" fill="none" />
+
+                <ellipse id="ellipse1-hitbox" cx="300" cy="500" rx="100" ry="70" stroke="#ffffff00" stroke-width="18"
+                    fill="none" />
+                <ellipse id="ellipse2-hitbox" cx="300" cy="500" rx="120" ry="70" stroke="#ffffff00" stroke-width="18"
+                    fill="none" />
+                <ellipse id="ellipse3-hitbox" cx="300" cy="500" rx="140" ry="70" stroke="#ffffff00" stroke-width="18"
+                    fill="none" />
+                <ellipse id="ellipse4-hitbox" cx="300" cy="500" rx="160" ry="70" stroke="#ffffff00" stroke-width="18"
+                    fill="none" />
+                <ellipse id="ellipse5-hitbox" cx="300" cy="500" rx="180" ry="70" stroke="#ffffff00" stroke-width="18"
+                    fill="none" />
+                <ellipse id="ellipse6-hitbox" cx="300" cy="500" rx="200" ry="70" stroke="#ffffff00" stroke-width="18"
+                    fill="none" />
+
+                <line id="line1" x1="400" y1="500" x2="420" y2="422" stroke="white" stroke-width="1" />
+                <line id="line2" x1="420" y1="500" x2="440" y2="422" stroke="white" stroke-width="1" />
+                <line id="line3" x1="440" y1="500" x2="460" y2="422" stroke="white" stroke-width="1" />
+                <line id="line4" x1="460" y1="500" x2="480" y2="422" stroke="white" stroke-width="1" />
+                <line id="line5" x1="480" y1="500" x2="500" y2="422" stroke="white" stroke-width="1" />
+                <line id="line6" x1="500" y1="500" x2="520" y2="422" stroke="white" stroke-width="1" />
+
+                <text id="text1" x="438" y="420" text-anchor="middle" fill="white" font-size="20">links</text>
+                <text id="text2" x="463" y="420" text-anchor="middle" fill="white" font-size="20">music</text>
+                <text id="text3" x="483" y="420" text-anchor="middle" fill="white" font-size="20">visuals</text>
+                <text id="text4" x="501" y="420" text-anchor="middle" fill="white" font-size="20">space</text>
+                <text id="text5" x="521" y="420" text-anchor="middle" fill="white" font-size="20">about</text>
+                <text id="text6" x="536" y="420" text-anchor="middle" fill="white" font-size="20">tests</text>
+                <!--
+                <circle id="circle1" cx="140" cy="620" r="20" stroke="white" stroke-width="1" fill="white" />
+                <circle id="circle2" cx="204" cy="620" r="20" stroke="white" stroke-width="1" fill="white" />
+                <circle id="circle3" cx="268" cy="620" r="20" stroke="white" stroke-width="1" fill="white" />
+                <circle id="circle4" cx="332" cy="620" r="20" stroke="white" stroke-width="1" fill="white" />
+                <circle id="circle5" cx="396" cy="620" r="20" stroke="white" stroke-width="1" fill="white" />
+                <circle id="circle6" cx="460" cy="620" r="20" stroke="white" stroke-width="1" fill="white" />
+                -->
+            </svg>
+            <!--
+            <div id="logoimg">
+                <img src="images/carings.svg" alt="Carings" id="carings">
+            </div>
+            -->
+        </div>
+    </div>
+
     <div id="output" contentEditable="true"
-        style="white-space: pre; font-family: monospace; height: 16em; width: 20em; overflow: auto;"></div>
+        style="white-space: pre; font-family: monospace; height: 16em; width: 12em; overflow: auto;">
+    </div>
     <br>
-    Ctrl+U or Cmd+Option+U to view source.
+    <div class="footer">
+        <div id="left">&copy; 2024</div>
+        <div id="middle">CYBERIA ARCHIVE CYBERIA ARCHIVE</div>
+        <div id="right">()‾‾‾‾‾‾‾‾‾‾‾‾‾()</div>
+    </div>
     <script src="js/bonsai.js"></script>
 </body>
 
