@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CYBERIA ARCHIVE.l</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <link rel="icon" href="../images/icons/iconlinks.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Redacted&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'BASICA';
+            src: url('fonts/BASICA\ -\ FUTURE_TTF.TTF') format('truetype');
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* scanlines */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg,
+                    rgba(25, 25, 25, 0.55),
+                    rgba(25, 25, 25, 0.15) 1px,
+                    transparent 1px,
+                    transparent 3px);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: none;
+            color: #fff;
+        }
+
+        #headerleft {
+            position: absolute;
+            left: 82px;
+        }
+
+        .logosmall {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 50%;
+            height: 100%;
+        }
+
+        .logosmall>svg,
+        #logoimg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .window {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 1000px;
+            background-color: #000082;
+            color: #fff;
+        }
+
+        #link {
+            color: #ffffff;
+            padding: 3px;
+        }
+
+        #link:hover {
+            background-color: #aaaaaa;
+            color: #000082;
+        }
+
+        .technical {
+            position: absolute;
+            left: 50px;
+            bottom: 25px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+        }
+
+        #left {
+            position: absolute;
+            left: 32px;
+        }
+
+        #right {
+            position: absolute;
+            right: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div id="headerleft">
+            <a href="../index.html">
+                <div class="logosmall">
+                    <svg width="150" height="75">
+                        <ellipse id="ellipse1" cx="75" cy="37.5" rx="25" ry="17.5" stroke="red" stroke-width="1"
+                            fill="none" />
+                        <ellipse id="ellipse2" cx="75" cy="37.5" rx="30" ry="17.5" stroke="white" stroke-width="0.5"
+                            fill="none" />
+                        <ellipse id="ellipse3" cx="75" cy="37.5" rx="35" ry="17.5" stroke="white" stroke-width="0.5"
+                            fill="none" />
+                        <ellipse id="ellipse4" cx="75" cy="37.5" rx="40" ry="17.5" stroke="white" stroke-width="0.5"
+                            fill="none" />
+                        <ellipse id="ellipse5" cx="75" cy="37.5" rx="45" ry="17.5" stroke="white" stroke-width="0.5"
+                            fill="none" />
+                        <ellipse id="ellipse6" cx="75" cy="37.5" rx="50" ry="17.5" stroke="white" stroke-width="0.5"
+                            fill="none" />
+                    </svg>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="window">
+            <div class="links">
+                <a href="#" id="link">INSTAGRAM</a>
+            </div>
+            <div class="technical">
+                <p>Technical information:</p>
+                <p>*** STOP: 0x0000007B (0xF8975528, 0xc0000034, 0x00000000, 0x00000000)</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div id="left">&copy; 2024</div>
+        <div id="middle">CYBERIA ARCHIVE CYBERIA ARCHIVE</div>
+        <div id="right">[links]</div>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
