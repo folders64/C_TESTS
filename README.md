@@ -8,3 +8,8 @@ The [webring](https://wiki.xxiivv.com/site/webring.html) is an attempt to inspir
 
 # Help
 The ring is managed by [@neauoire](https://merveilles.town/@neauoire), but any member of the network is also welcome to join the repository as a collaborator to help manage new links and Pull Requests. Read more about the webring [here](https://wiki.xxiivv.com/site/webring.html).
+
+
+# current status
+![Screenshot of the first webpage](images/home.png)
+![Screenshot of the first webpage](images/links.png)
