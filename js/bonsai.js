@@ -2,6 +2,13 @@
 // inspired by https://p.teknik.io/Raw/EWWzQ
 // and https://www.reddit.com/r/unixporn/comments/amdt7m/2bwm_cat/
 
+var mql = window.matchMedia('(max-width: 600px)');
+
+//if the screen is small, don't show the bonsai tree
+if (mql.matches) {
+    return;
+}
+
 var output = document.getElementById("output");
 var rows = 13;
 var cols = 18;

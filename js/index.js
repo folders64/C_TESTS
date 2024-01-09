@@ -1,4 +1,4 @@
-//URLs
+// URLs
 const urls = [
     'pages/links.html',
     'https://example.com/page2',
@@ -9,31 +9,40 @@ const urls = [
     'https://example.com/page7'
 ];
 
-for (let i = 1; i <= 6; i++) {
-    const ellipseHitbox = document.getElementById(`ellipse${i}-hitbox`);
-    const text = document.getElementById(`text${i}`);
-    const line = document.getElementById(`line${i}`);
-    //const circle = document.getElementById(`circle${i}`);
+// Check viewport width
+var mql = window.matchMedia('(max-width: 600px)');
 
-    //circle.style.fill = 'none'; // Change this line
-    text.style.visibility = 'hidden';
-    line.style.visibility = 'hidden';
+// if screen is small, dont run link functionality
+if (mql.matches) {
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById(`line${i}`).classList.add('hide-on-mobile');
+        document.getElementById(`text${i}`).classList.add('hide-on-mobile');
+    }
+} else {
+    runScript();
+}
 
-    ellipseHitbox.addEventListener('mouseover', () => {
-        text.style.visibility = 'visible';
-        line.style.visibility = 'visible';
-        //circle.style.fill = 'white'; // And this line
+function runScript() {
+    for (let i = 1; i <= 6; i++) {
+        const ellipseHitbox = document.getElementById(`ellipse${i}-hitbox`);
+        const text = document.getElementById(`text${i}`);
+        const line = document.getElementById(`line${i}`);
 
-    });
-
-    ellipseHitbox.addEventListener('mouseout', () => {
         text.style.visibility = 'hidden';
         line.style.visibility = 'hidden';
-        //circle.style.fill = 'none'; // And this line
 
-    });
+        ellipseHitbox.addEventListener('mouseover', () => {
+            text.style.visibility = 'visible';
+            line.style.visibility = 'visible';
+        });
 
-    ellipseHitbox.addEventListener('click', () => {
-        window.location.href = urls[i - 1];
-    });
+        ellipseHitbox.addEventListener('mouseout', () => {
+            text.style.visibility = 'hidden';
+            line.style.visibility = 'hidden';
+        });
+
+        ellipseHitbox.addEventListener('click', () => {
+            window.location.href = urls[i - 1];
+        });
+    }
 }
