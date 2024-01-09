@@ -1,3 +1,4 @@
+<!--
 # webtests
 testing an extremely minimal website only using html and vanilla css for the webring thats supposed to be my main webpage for everything.
 
@@ -9,7 +10,7 @@ The [webring](https://wiki.xxiivv.com/site/webring.html) is an attempt to inspir
 # Help
 The ring is managed by [@neauoire](https://merveilles.town/@neauoire), but any member of the network is also welcome to join the repository as a collaborator to help manage new links and Pull Requests. Read more about the webring [here](https://wiki.xxiivv.com/site/webring.html).
 
-
+-->
 # current status
 
 using plain css and javascript
