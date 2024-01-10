@@ -25,7 +25,7 @@
             overflow-x: hidden;
         }
 
-        /* scanlines 
+        /*scanlines*/
         body::before {
             content: "";
             position: fixed;
@@ -41,7 +41,6 @@
             pointer-events: none;
             z-index: 9999;
         }
-        */
 
         .header {
             position: fixed;
@@ -64,7 +63,6 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            /* Change to column */
             justify-content: center;
             align-items: center;
         }
@@ -120,35 +118,16 @@
             transform: translateY(-50%) rotate(-90deg);
         }
 
-        .logo .ellipse.hidden {
-            opacity: 0;
-            display: none;
-            /*transition: opacity 0.5s ease-in-out;*/
-        }
-
-        .logo .el.hidden {
-            opacity: 0;
-            display: none;
-            /*transition: opacity 0.5s ease-in-out;*/
-        }
-
-        .logo .svgtext.hidden {
-            opacity: 0;
-            display: none;
-            /*transition: opacity 0.5s ease-in-out;*/
-        }
-
-        .logo .line.hidden {
-            opacity: 0;
-            display: none;
-            /*transition: opacity 0.5s ease-in-out;*/
-        }
-
+        .logo .ellipse.hidden,
+        .logo .el.hidden,
+        .logo .svgtext.hidden,
+        .logo .line.hidden,
         .logo .ellipse-hitbox.hidden {
             opacity: 0;
             display: none;
             /*transition: opacity 0.5s ease-in-out;*/
         }
+        
     </style>
 </head>
 

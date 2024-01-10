@@ -73,13 +73,13 @@ document.addEventListener("DOMContentLoaded", function () {
         helpLogoEllipses.forEach(function (el, index) {
             const elOffset = el.getBoundingClientRect().top + scrollY;
 
-            if (scrollDirection === 'up') { // reversed conditions
+            if (scrollDirection === 'up') { // reversed
                 // hide
                 setTimeout(() => {
                     el.style.opacity = 0;
                     el.classList.add('hidden');
                 }, index * 20); // delay
-            } else if (scrollDirection === 'down') { // reversed conditions
+            } else if (scrollDirection === 'down') {
                 // show
                 setTimeout(() => {
                     el.style.opacity = 1;
