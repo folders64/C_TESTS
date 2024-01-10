@@ -1,13 +1,30 @@
-// URLs
-const urls = [
-    'pages/links.html',
-    'https://example.com/page2',
-    'https://example.com/page3',
-    'https://example.com/page4',
-    'https://example.com/page5',
-    'https://example.com/page6',
-    'https://example.com/page7'
-];
+
+function revealEllipses() {
+    const ellipses = [];
+
+    // Collect the first 6 ellipses
+    for (let i = 1; i <= 6; i++) {
+        const ellipse = document.getElementById(`ellipse${i}`);
+        if (ellipse) {
+            ellipses.push(ellipse);
+        }
+    }
+
+    ellipses.forEach((ellipse, index) => {
+        // Set initial styles
+        ellipse.style.opacity = '0';
+        ellipse.style.transition = `opacity 0.5s ease ${index * 0.1}s`; // Adjust the delay as needed
+
+        // Use setTimeout to apply opacity change after a short delay
+        setTimeout(() => {
+            ellipse.style.opacity = '1';
+        }, 50); // Adjust the delay as needed
+    });
+}
+
+// Call the revealEllipses function when the window has finished loading
+window.addEventListener('load', revealEllipses);
+
 
 // Check viewport width
 var mql = window.matchMedia('(max-width: 600px)');
@@ -21,6 +38,17 @@ if (mql.matches) {
 } else {
     runScript();
 }
+
+// URLs
+const urls = [
+    'pages/links.html',
+    'https://example.com/page2',
+    'https://example.com/page3',
+    'https://example.com/page4',
+    'https://example.com/page5',
+    'https://example.com/page6',
+    'https://example.com/page7'
+];
 
 function runScript() {
     for (let i = 1; i <= 6; i++) {
@@ -49,17 +77,26 @@ function runScript() {
 
 function adjustLayout() {
     var page = document.querySelector('.page2');
-    if (window.innerWidth >= 768) { // adjust this value as needed
+    if (window.innerWidth >= 768) {
         page.style.display = 'grid';
         page.style.gridTemplateColumns = 'repeat(2, 1fr)';
         page.style.gridTemplateRows = 'repeat(3, 1fr)';
-        page.style.gap = '20px'; // adjust this value as needed
-    } else {
+        page.style.gap = '20px';
+        page.style.alignItems = 'initial'; // Reset align-items
+    } else if (window.innerWidth >= 768) {
         page.style.display = 'flex';
         page.style.justifyContent = 'center';
         page.style.alignItems = 'center';
+        page.style.margin = '0'; // Reset margin
+    } else {
+        page.style.display = 'block';
+        page.style.textAlign = 'center';
+        page.style.gap = '20px'; // Add margin to create space between elements
     }
 }
+
+
+
 
 window.addEventListener('resize', adjustLayout);
 
@@ -78,10 +115,12 @@ function resizeSVGs() {
         height = 150;
     }
 
-    document.getElementById('el5').setAttribute('width', width);
-    document.getElementById('el5').setAttribute('height', height);
-    document.getElementById('el6').setAttribute('width', width);
-    document.getElementById('el6').setAttribute('height', height);
+    document.getElementById('ellipse1').setAttribute('width', width);
+    document.getElementById('ellipse2').setAttribute('height', height);
+    document.getElementById('ellipse3').setAttribute('width', width);
+    document.getElementById('ellipse4').setAttribute('height', height);
+    document.getElementById('ellipse5').setAttribute('height', height);
+    document.getElementById('ellipse6').setAttribute('height', height);
 }
 
 // Call resizeSVGs on page load to set initial sizes
