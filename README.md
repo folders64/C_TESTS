@@ -17,7 +17,7 @@ using plain css and javascript
 
 kinda broken so please help if you can
 
-at https://c-tests.vercel.app/
+at https://c-tests.vercel.app/ and https://folders64.github.io/C_TESTS/
 
 ![Screenshot of the first webpage](images/home.png)
 ![Screenshot of the first webpage](images/links.png)
