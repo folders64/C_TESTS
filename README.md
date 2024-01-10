@@ -15,6 +15,8 @@ The ring is managed by [@neauoire](https://merveilles.town/@neauoire), but any m
 
 using plain css and javascript
 
+kinda broken so please help if you can
+
 at https://c-tests.vercel.app/
 
 ![Screenshot of the first webpage](images/home.png)
