@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Redacted&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
     <style>
         @font-face {
             font-family: 'BASICA';
@@ -48,12 +47,18 @@
             width: 100%;
             height: 50px;
             background-color: rgba(131, 131, 131, 0);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(5px);
+            opacity: 1;
+            transition: opacity 0.2s linear;
             z-index: 1000;
         }
 
+        .header.hidden {
+            opacity: 0;
+        }
+
         .q1 {
-            background-color: rgb(102, 102, 102);
+            background-color: rgb(0, 0, 0);
             height: 100vh;
             width: 100%;
             display: flex;
@@ -74,6 +79,21 @@
             width: 100%;
         }
 
+        .animate {
+            opacity: 0;
+            /* Start with opacity 0 */
+            transform: translateY(20px);
+            /* Optional: Start slightly below and move up */
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            /* Customize the animation duration and easing */
+        }
+
+        .animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
         a {
             color: #cfcfcf;
         }
@@ -87,12 +107,11 @@
 
         .logo>svg,
         #logoimg {
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
-
 
         .footer {
             position: fixed;
@@ -109,20 +128,6 @@
             bottom: 25px;
             transform: translateY(-50%) rotate(-90deg);
         }
-
-        /*
-        #middle {
-            color: #fff;
-            text-align: center;
-        }
-
-        #right {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        */
     </style>
 </head>
 
@@ -182,51 +187,52 @@
             </div>
         </div>
     </div>
+    <!--
     <div class="q2">
         <div class="page2">
-            <a href="pages/links.html">
+            <a class="el" href="pages/links.html">
                 <svg id="el1" width="400" height="150">
-                    <ellipse class="ellipse" id="ellipse1" cx="200" cy="60" rx="75" ry="52.5" stroke="white"
+                    <ellipse class="ellipse" id="ellipseh1" cx="200" cy="60" rx="75" ry="52.5" stroke="white"
                         stroke-width="1" fill="none" />
                     <text class="svgtext" id="text1" x="200" y="140" text-anchor="middle" fill="white"
                         font-size="20">links</text>
                 </svg>
             </a>
-            <a href="#">
+            <a class="el" href="#">
                 <svg id="el2" width="400" height="150">
-                    <ellipse class="ellipse" id="ellipse2" cx="200" cy="60" rx="90" ry="52.5" stroke="white"
+                    <ellipse class="ellipse" id="ellipseh2" cx="200" cy="60" rx="90" ry="52.5" stroke="white"
                         stroke-width="1" fill="none" />
                     <text class="svgtext" id="text2" x="200" y="140" text-anchor="middle" fill="white"
                         font-size="20">music</text>
                 </svg>
             </a>
-            <a href="#">
+            <a class="el" href="#">
                 <svg id="el3" width="400" height="150">
-                    <ellipse class="ellipse" id="ellipse3" cx="200" cy="60" rx="105" ry="52.5" stroke="white"
+                    <ellipse class="ellipse" id="ellipseh3" cx="200" cy="60" rx="105" ry="52.5" stroke="white"
                         stroke-width="1" fill="none" />
                     <text class="svgtext" id="text3" x="200" y="140" text-anchor="middle" fill="white"
                         font-size="20">visuals</text>
                 </svg>
             </a>
-            <a href="#">
+            <a class="el" href="#">
                 <svg id="el4" width="400" height="150">
-                    <ellipse class="ellipse" id="ellipse4" cx="200" cy="60" rx="120" ry="52.5" stroke="white"
+                    <ellipse class="ellipse" id="ellipseh4" cx="200" cy="60" rx="120" ry="52.5" stroke="white"
                         stroke-width="1" fill="none" />
                     <text class="svgtext" id="text4" x="200" y="140" text-anchor="middle" fill="white"
                         font-size="20">space</text>
                 </svg>
             </a>
-            <a href="#">
+            <a class="el" href="#">
                 <svg id="el5" width="400" height="150">
-                    <ellipse class="ellipse" id="ellipse5" cx="200" cy="60" rx="135" ry="52.5" stroke="white"
+                    <ellipse class="ellipse" id="ellipseh5" cx="200" cy="60" rx="135" ry="52.5" stroke="white"
                         stroke-width="1" fill="none" />
                     <text class="svgtext" id="text5" x="200" y="140" text-anchor="middle" fill="white"
                         font-size="20">about</text>
                 </svg>
             </a>
-            <a href="#">
+            <a class="el" href="#">
                 <svg id="el6" width="400" height="150">
-                    <ellipse class="ellipse" id="ellipse6" cx="200" cy="60" rx="150" ry="52.5" stroke="white"
+                    <ellipse class="ellipse" id="ellipseh6" cx="200" cy="60" rx="150" ry="52.5" stroke="white"
                         stroke-width="1" fill="none" />
                     <text class="svgtext" id="text6" x="200" y="140" text-anchor="middle" fill="white"
                         font-size="20">tests</text>
@@ -234,6 +240,7 @@
             </a>
         </div>
     </div>
+    -->
     <div class="footer">
         <div id="left">
             &copy; 2024

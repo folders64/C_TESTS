@@ -1,5 +1,12 @@
 //page functionality
+
+// Reset scroll position on page reload
+window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+});
+
 //var footerElement = document.querySelector('.footer');
+/*
 var middleElement = document.querySelector('#middle');
 var rightElement = document.querySelector('#right');
 var bonsai = document.querySelector('#output');
@@ -25,7 +32,8 @@ function handleViewportChange(e) {
 handleViewportChange(mql);
 
 mql.addListener(handleViewportChange);
-
+*/
+/*
 document.addEventListener('DOMContentLoaded', (event) => {
     const middleElement = document.getElementById('middle');
     const originalText = middleElement.textContent;
@@ -44,3 +52,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 });
+*/

@@ -1,32 +1,4 @@
-
-function revealEllipses() {
-    const ellipses = [];
-
-    // Collect the first 6 ellipses
-    for (let i = 1; i <= 6; i++) {
-        const ellipse = document.getElementById(`ellipse${i}`);
-        if (ellipse) {
-            ellipses.push(ellipse);
-        }
-    }
-
-    ellipses.forEach((ellipse, index) => {
-        // Set initial styles
-        ellipse.style.opacity = '0';
-        ellipse.style.transition = `opacity 0.5s ease ${index * 0.1}s`; // Adjust the delay as needed
-
-        // Use setTimeout to apply opacity change after a short delay
-        setTimeout(() => {
-            ellipse.style.opacity = '1';
-        }, 50); // Adjust the delay as needed
-    });
-}
-
-// Call the revealEllipses function when the window has finished loading
-window.addEventListener('load', revealEllipses);
-
-
-// Check viewport width
+// check viewport width
 var mql = window.matchMedia('(max-width: 600px)');
 
 // if screen is small, dont run link functionality
@@ -58,6 +30,7 @@ function runScript() {
 
         text.style.visibility = 'hidden';
         line.style.visibility = 'hidden';
+        ellipseHitbox.style.cursor = 'pointer';
 
         ellipseHitbox.addEventListener('mouseover', () => {
             text.style.visibility = 'visible';
@@ -91,7 +64,6 @@ function adjustLayout() {
     } else {
         page.style.display = 'block';
         page.style.textAlign = 'center';
-        page.style.gap = '20px'; // Add margin to create space between elements
     }
 }
 
@@ -99,7 +71,6 @@ function adjustLayout() {
 
 
 window.addEventListener('resize', adjustLayout);
-
 window.addEventListener('resize', resizeSVGs);
 
 function resizeSVGs() {
@@ -123,6 +94,6 @@ function resizeSVGs() {
     document.getElementById('ellipse6').setAttribute('height', height);
 }
 
-// Call resizeSVGs on page load to set initial sizes
+// page load set initial sizes
 resizeSVGs();
 adjustLayout();
