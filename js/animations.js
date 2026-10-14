@@ -1,93 +1,63 @@
-/* not needed anymore
-const header = document.querySelector('.header');
-//store scroll position and timeout ID
-let isScrolling;
-let scrollTimeout;
+(function () {
+    'use strict';
 
-//scroll events
-function headerScroll() {
-    // clear timeout
-    clearTimeout(scrollTimeout);
-
-    // hide header when scrolling down
-    header.classList.add('hidden');
-
-    // show header after 1000 milliseconds of no scrolling
-    scrollTimeout = setTimeout(() => {
-        header.classList.remove('hidden');
-    }, 50);
-
-}
-window.addEventListener('scroll', headerScroll);
-*/
-
-
-window.addEventListener('load', (event) => {
-    let helpLogoEllipses = document.querySelectorAll('.logo .el');
-    helpLogoEllipses.forEach(function (el) {
-        el.style.opacity = 0;
+    // Ensure help logo ellipses are hidden on load
+    window.addEventListener('load', () => {
+        const helpLogoEllipses = document.querySelectorAll('.logo .el');
+        helpLogoEllipses.forEach(el => {
+            if (el && el.style) el.style.opacity = 0;
+        });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    let mainLogoEllipses = document.querySelectorAll('.logo .ellipse');
-    let helpLogoEllipses = document.querySelectorAll('.logo .el');
-    let lines = document.querySelectorAll('.logo .line');
-    let texts = document.querySelectorAll('.logo .svgtext');
-    let hitboxes = document.querySelectorAll('.logo .ellipse-hitbox');
+    document.addEventListener('DOMContentLoaded', () => {
+        const mainLogoEllipses = Array.from(document.querySelectorAll('.logo .ellipse'));
+        const helpLogoEllipses = Array.from(document.querySelectorAll('.logo .el'));
+        const lines = Array.from(document.querySelectorAll('.logo .line'));
+        const texts = Array.from(document.querySelectorAll('.logo .svgtext'));
+        const hitboxes = Array.from(document.querySelectorAll('.logo .ellipse-hitbox'));
 
-    function handleScroll(event) {
-        const scrollDirection = event.deltaY > 0 ? 'down' : 'up';
+        function handleScroll(event) {
+            const deltaY = event && typeof event.deltaY === 'number' ? event.deltaY : 0;
+            const scrollDirection = deltaY > 0 ? 'down' : 'up';
 
-        const scrollY = window.scrollY || document.documentElement.scrollTop;
+            // Animate main logo ellipses + associated elements in sequence
+            mainLogoEllipses.forEach((ellipse, index) => {
+                const line = lines[index];
+                const text = texts[index];
+                const hitbox = hitboxes[index];
+                const fn = () => {
+                    if (!ellipse) return;
+                    if (scrollDirection === 'down') {
+                        ellipse.classList.add('hidden');
+                        if (line) line.classList.add('hidden');
+                        if (text) text.classList.add('hidden');
+                        if (hitbox) hitbox.classList.add('hidden');
+                    } else {
+                        ellipse.classList.remove('hidden');
+                        if (line) line.classList.remove('hidden');
+                        if (text) text.classList.remove('hidden');
+                        if (hitbox) hitbox.classList.remove('hidden');
+                    }
+                };
+                setTimeout(fn, index * 100);
+            });
 
-        console.log("Scroll Direction:", scrollDirection);
-        console.log("ScrollY:", scrollY);
-
-        // triggeroffset
-        const triggerOffset = 100;
-
-        mainLogoEllipses.forEach(function (ellipse, index) {
-            const ellipseOffset = ellipse.getBoundingClientRect().top + scrollY;
-
-            if (scrollDirection === 'down') {
-                // hide
+            // Help/logo ellipses have reversed show/hide behavior
+            helpLogoEllipses.forEach((el, index) => {
+                if (!el) return;
                 setTimeout(() => {
-                    ellipse.classList.add('hidden');
-                    lines[index].classList.add('hidden');
-                    texts[index].classList.add('hidden');
-                    hitboxes[index].classList.add('hidden');
-                }, index * 100); // delay
-            } else if (scrollDirection === 'up') {
-                // show
-                setTimeout(() => {
-                    ellipse.classList.remove('hidden');
-                    lines[index].classList.remove('hidden');
-                    texts[index].classList.remove('hidden');
-                    hitboxes[index].classList.remove('hidden');
-                }, index * 100); // delay
-            }
-        });
+                    if (scrollDirection === 'down') {
+                        el.style.opacity = '1';
+                        el.classList.remove('hidden');
+                    } else {
+                        el.style.opacity = '0';
+                        el.classList.add('hidden');
+                    }
+                }, index * 20);
+            });
+        }
 
-
-        helpLogoEllipses.forEach(function (el, index) {
-            const elOffset = el.getBoundingClientRect().top + scrollY;
-
-            if (scrollDirection === 'up') { // reversed
-                // hide
-                setTimeout(() => {
-                    el.style.opacity = 0;
-                    el.classList.add('hidden');
-                }, index * 20); // delay
-            } else if (scrollDirection === 'down') {
-                // show
-                setTimeout(() => {
-                    el.style.opacity = 1;
-                    el.classList.remove('hidden');
-                }, index * 20); // delay
-            }
-        });
-    }
-
-    window.addEventListener("wheel", handleScroll);
-});
+        // Use passive listener for wheel for performance; behavior preserved
+        window.addEventListener('wheel', handleScroll, { passive: true });
+    });
+})();
